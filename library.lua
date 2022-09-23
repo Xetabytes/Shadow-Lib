@@ -71,8 +71,10 @@ lib.Notifications = CreateInstance("ScreenGui", {
 if (syn and syn.protect_gui or gethui) then
 	if (core_gui:FindFirstChild("EclipseLib")) then
 		core_gui.EclipseLib:Destroy()
+		core_gui.EclipseLibNotifications:Destroy()
 	end
 
+	lib.Notifications.Parent = core_gui
 	lib.MainGui.Parent = core_gui
 else
 	player:Kick("Attempt to load library without Synapse X or Scriptware")
@@ -996,12 +998,5 @@ function lib:Notification(info)
 		end)
 	end
 end
-
-lib.NotificationType = {
-	Success = 0,
-	Error = 1,
-	Info = 2,
-	Button = 3
-}
 
 return lib
